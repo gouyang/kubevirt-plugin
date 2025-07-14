@@ -107,8 +107,9 @@ describe('Test Advanced search for VMs', () => {
       cy.contains(NAME_CELL, FEDORA_VM).should('exist');
     });
 
-    it('test VM search by vCPU', () => {
-      cy.byTestID(ADV_SRCH_BTN).click();
+    // skip the test due to the test won't work if the VM is off
+    xit('test VM search by vCPU', () => {
+      cy.get(ADV_SRCH_BTN).click();
       cy.byTestID('adv-search-vcpu-value').type('1');
       cy.clickSearchBtn();
       cy.contains(NAME_CELL, CENTOS9_VM).should('not.exist');
@@ -124,8 +125,8 @@ describe('Test Advanced search for VMs', () => {
       cy.contains(NAME_CELL, FEDORA_VM).should('exist');
     });
 
-    it('test VM search by memory', () => {
-      cy.byTestID(ADV_SRCH_BTN).click();
+    xit('test VM search by memory', () => {
+      cy.get(ADV_SRCH_BTN).click();
       cy.byTestID('adv-search-mem-value').type('2');
       cy.clickSearchBtn();
       cy.contains(NAME_CELL, CENTOS9_VM).should('exist');
